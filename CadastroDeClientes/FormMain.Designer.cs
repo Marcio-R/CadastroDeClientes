@@ -1,7 +1,7 @@
 ﻿
 namespace CadastroDeClientes
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,7 +29,7 @@ namespace CadastroDeClientes
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.label1 = new System.Windows.Forms.Label();
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -197,8 +197,10 @@ namespace CadastroDeClientes
             this.cbxNascionalidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNascionalidade.FormattingEnabled = true;
             this.cbxNascionalidade.Location = new System.Drawing.Point(16, 247);
+            this.cbxNascionalidade.MaxDropDownItems = 20;
             this.cbxNascionalidade.Name = "cbxNascionalidade";
             this.cbxNascionalidade.Size = new System.Drawing.Size(104, 21);
+            this.cbxNascionalidade.Sorted = true;
             this.cbxNascionalidade.TabIndex = 9;
             // 
             // label8
@@ -314,6 +316,7 @@ namespace CadastroDeClientes
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrod de Clientes";

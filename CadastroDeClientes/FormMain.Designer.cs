@@ -35,11 +35,8 @@ namespace CadastroDeClientes
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.mtbCpf = new System.Windows.Forms.MaskedTextBox();
             this.dtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.nudRendaMensal = new System.Windows.Forms.NumericUpDown();
@@ -55,13 +52,16 @@ namespace CadastroDeClientes
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.mtbCpf = new System.Windows.Forms.MaskedTextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudRendaMensal)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 38);
+            this.label1.Location = new System.Drawing.Point(16, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -71,28 +71,32 @@ namespace CadastroDeClientes
             // 
             this.cbxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(16, 55);
+            this.cbxCliente.Location = new System.Drawing.Point(16, 38);
             this.cbxCliente.Name = "cbxCliente";
             this.cbxCliente.Size = new System.Drawing.Size(297, 21);
             this.cbxCliente.TabIndex = 0;
+            this.cbxCliente.SelectedIndexChanged += new System.EventHandler(this.cbxCliente_SelectedIndexChanged);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.Enabled = false;
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.Location = new System.Drawing.Point(314, 55);
+            this.btnAlterar.Location = new System.Drawing.Point(314, 38);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(36, 23);
             this.btnAlterar.TabIndex = 1;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
-            this.btnNovo.Location = new System.Drawing.Point(349, 55);
+            this.btnNovo.Location = new System.Drawing.Point(349, 38);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(36, 23);
             this.btnNovo.TabIndex = 2;
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // label3
             // 
@@ -103,14 +107,6 @@ namespace CadastroDeClientes
             this.label3.TabIndex = 5;
             this.label3.Text = "Codigo";
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(16, 135);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(40, 20);
-            this.txtCodigo.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -120,30 +116,14 @@ namespace CadastroDeClientes
             this.label4.TabIndex = 7;
             this.label4.Text = "Nome Completo";
             // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(78, 135);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(168, 20);
-            this.txtNome.TabIndex = 4;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(286, 117);
+            this.label5.Location = new System.Drawing.Point(266, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "CPF";
-            // 
-            // mtbCpf
-            // 
-            this.mtbCpf.Location = new System.Drawing.Point(262, 135);
-            this.mtbCpf.Mask = "000.000.000-00";
-            this.mtbCpf.Name = "mtbCpf";
-            this.mtbCpf.Size = new System.Drawing.Size(123, 20);
-            this.mtbCpf.TabIndex = 5;
             // 
             // dtpDataNascimento
             // 
@@ -253,7 +233,7 @@ namespace CadastroDeClientes
             // label11
             // 
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Location = new System.Drawing.Point(5, 97);
+            this.label11.Location = new System.Drawing.Point(5, 80);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label11.Size = new System.Drawing.Size(400, 1);
@@ -267,6 +247,7 @@ namespace CadastroDeClientes
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "&Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -276,6 +257,7 @@ namespace CadastroDeClientes
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFechar
             // 
@@ -285,12 +267,40 @@ namespace CadastroDeClientes
             this.btnFechar.TabIndex = 12;
             this.btnFechar.Text = "&Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // Form1
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(83, 135);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(173, 20);
+            this.txtNome.TabIndex = 23;
+            // 
+            // mtbCpf
+            // 
+            this.mtbCpf.Location = new System.Drawing.Point(262, 135);
+            this.mtbCpf.Mask = "000-000-000-00";
+            this.mtbCpf.Name = "mtbCpf";
+            this.mtbCpf.Size = new System.Drawing.Size(123, 20);
+            this.mtbCpf.TabIndex = 24;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(16, 135);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(44, 20);
+            this.txtCodigo.TabIndex = 25;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 382);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.mtbCpf);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
@@ -306,20 +316,18 @@ namespace CadastroDeClientes
             this.Controls.Add(this.nudRendaMensal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpDataNascimento);
-            this.Controls.Add(this.mtbCpf);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrod de Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudRendaMensal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -333,11 +341,8 @@ namespace CadastroDeClientes
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox mtbCpf;
         private System.Windows.Forms.DateTimePicker dtpDataNascimento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudRendaMensal;
@@ -353,6 +358,9 @@ namespace CadastroDeClientes
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.MaskedTextBox mtbCpf;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }
 

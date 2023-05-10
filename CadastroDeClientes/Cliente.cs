@@ -18,7 +18,7 @@ namespace CadastroDeClientes
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
         public decimal RendaMensal { get; set; }
         public EnumEstadoCivil EstadoCivil { get; set; }
@@ -27,7 +27,8 @@ namespace CadastroDeClientes
         public string PlacaVeiculo { get; set; }
         public static List<Cliente> ListClientes { get; set; }
 
-        public Cliente(string nome, int cpf, DateTime dataNascimento, decimal rendaMensal, EnumEstadoCivil estadoCivil, bool temFilhos, string nacionalidade, string placaVeiculo)
+
+        public Cliente(string nome, string cpf, DateTime dataNascimento, decimal rendaMensal, EnumEstadoCivil estadoCivil, bool temFilhos, string nacionalidade, string placaVeiculo)
         {
             Codigo = 0;
             Nome = nome;
@@ -40,16 +41,23 @@ namespace CadastroDeClientes
             PlacaVeiculo = placaVeiculo;
         }
 
-        public Cliente(int codigo)
+        public Cliente()
         {
-            Codigo = codigo;
+            this.Codigo = 0;
+        }
+
+        public static List<Cliente> Listagem { get; set; }
+
+        static Cliente()
+        {
+            Listagem = new List<Cliente>();
         }
 
         public static Cliente Insert(Cliente cliente)
         {
-            int codigo = ListClientes.Count > 0 ? ListClientes.Max(c => c.Codigo) + 1 : 1;
+            int codigo = Listagem.Count > 0 ? Listagem.Max(c => c.Codigo) + 1 : 1;
             cliente.Codigo = codigo;
-            ListClientes.Add(cliente);
+            Listagem.Add(cliente);
             return cliente;
         }
 
